@@ -1,0 +1,38 @@
+.logo {
+    width: 50px;
+}
+
+.app-wrapper {
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    grid-template-areas:
+    "h h"
+    "n c";
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 3fr 10fr;
+    /*grid-gap: 10px;*/
+}
+
+.header {
+    grid-area: h;
+    background-color: cadetblue;
+}
+
+.nav {
+    grid-area: n;
+    background-color: aqua;
+}
+
+.content {
+    grid-area: c;
+    background-color: hotpink;
+}
+
+.waifu {
+    width: 150px;
+}
+.user-wallpaper{
+    width: 100%;
+    height: 100px;
+}
