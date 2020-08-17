@@ -1,0 +1,18 @@
+.item{
+    background-color: deeppink;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin:5px;
+    display: flex;
+}
+
+.item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.message{
+    margin-left: 10px;
+    /*margin-top: 20px;*/
+    padding-top:15px;
+}
