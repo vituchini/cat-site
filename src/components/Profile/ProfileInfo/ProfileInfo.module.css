@@ -1,0 +1,16 @@
+.ProfileInfoBlock{
+
+}
+.avatar {
+    width: 150px;
+    border-radius: 1000px;
+    padding: 10px;
+}
+
+.userWallpaper {
+    width: 100%;
+    height: 100px;
+}
+.descriptionBlock{
+    padding: 10px;
+}
