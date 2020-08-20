@@ -3,4 +3,6 @@
 }
 .posts{
     border: solid red;
+    display: flex;
+    flex-direction: column-reverse;
 }
