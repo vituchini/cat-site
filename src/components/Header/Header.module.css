@@ -1,0 +1,21 @@
+.logo {
+    height: 100%;
+}
+.header {
+    grid-area: h;
+    background-color: black;
+    border-bottom: solid orangered;
+}
+.loginBlock{
+
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.loginBlock a{
+    text-decoration: none;
+    color: white;
+}
+.loginName{
+    color: white;
+}

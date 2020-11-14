@@ -3,32 +3,36 @@ import {Route, BrowserRouter} from 'react-router-dom'
 import './App.css';
 
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
-import Header from "./components/Header/Header.js";
-import Messages from "./components/Messages/Messages";
+import MessagesContainer from "./components/Messages/MessagesContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 
 function App(props) {
 
     return (
-        <BrowserRouter>
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
 
+        <React.StrictMode>
+            <div className='app-wrapper'>
+                <HeaderContainer/>
+                <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() =>
-                        <Profile
-                            postsData={props.state.profilePage.posts}
-                            addPost={props.addPost}
-                            newPostText={props.state.profilePage.newPostText}
-                            updateNewPostText={props.updateNewPostText}
-                        />}/>
-                    <Route path='/messages' render={() => <Messages dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData}/>}/>
+                    <Route path='/profile/:userId?'
+                           render={() => <ProfileContainer/>}/>
+                    <Route path='/messages' render={() =>
+                        <MessagesContainer/>}/>
+                    <Route path='/users' render={() =>
+                        <UsersContainer/>}/>
+                    <Route path='/login' render={() =>
+                        <Login/>}/>
                 </div>
             </div>
-        </BrowserRouter>
+        </React.StrictMode>
+
     );
+
 }
 
 export default App;

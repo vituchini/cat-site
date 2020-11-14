@@ -2,7 +2,7 @@
     padding: 5px;
 }
 .posts{
-    border: solid red;
+    /*border: solid red;*/
     display: flex;
     flex-direction: column-reverse;
 }

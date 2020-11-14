@@ -1,9 +1,21 @@
 import React from 'react'
-import "./Header.css"
-const Header = () => {
-    return (<header className='header'>
-            <img className='logo'
+import s from "./Header.module.css"
+import {NavLink} from "react-router-dom";
+
+const Header = (props) => {
+    return (
+        <header className={s.header}>
+            <img className={s.logo}
                  src='https://w7.pngwing.com/pngs/972/862/png-transparent-patrick-of-sponge-bob-patrick-star-internet-meme-know-your-meme-paddy-cartoon-meme-fictional-character.png'></img>
+            <div className={s.loginBlock}>
+                {
+                    props.isAuth
+                    ? <div className={s.loginName}>{props.login}</div>
+                    : <NavLink to={'/login'}>Login</NavLink>
+
+                }
+
+            </div>
         </header>
     )
 }

@@ -1,7 +1,8 @@
 .nav {
     grid-area: n;
-    background-color: aqua;
+    background-color: dimgrey;
     padding: 20px;
+    border-right:solid orangered ;
 }
 
 .item a {
@@ -10,5 +11,5 @@
 }
 
 .item a.active {
-    color: palevioletred;
+    color: orange;
 }

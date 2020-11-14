@@ -1,19 +1,17 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
+import ProfileStatus from "./ProfileStatus";
 
-function ProfileInfo() {
+function ProfileInfo(props) {
     return (
         <div className={s.ProfileInfoBlock}>
+                {/*<img className={s.userWallpaper} src="https://pw.artfile.me/wallpaper/24-08-2018/650x434/abstrakciya-vektornaya-grafika--grafika--1380218.jpg" alt=""/>*/}
+
             <div>
-                <img className={s.userWallpaper} src="https://www.ubackground.com/_ph/17/10154132.jpg" alt=""/>
+                <img className={s.avatar} src={props.profile.photos.small} alt=""/>
+                <img className={s.avatar} src={props.profile.photos.large} alt=""/>
             </div>
-            <div>
-                <img className={s.avatar}
-                     src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f7/f7e50892cf0750e53d05776850361eb67eb641f1_full.jpg'/>
-            </div>
-            <div className={s.descriptionBlock}>
-                ava+opis
-            </div>
+            <ProfileStatus status={'Hello'}/>
         </div>)
 }
 

@@ -17,4 +17,13 @@
 }
 .messages {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.messages textarea{
+    width: 40%;
+    height: 40px;
+}
+.messages button{
+    width: 20%;
 }

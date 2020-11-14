@@ -1,0 +1,15 @@
+.usersPhoto{
+    width: 100px;
+    height: 100px;
+}
+.selectedPage{
+    font-weight: bold;
+    border:solid red ;
+}
+.pagesBar{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.pagesBar span{
+    cursor: pointer;
+}
