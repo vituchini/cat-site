@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Users.module.css'
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -12,11 +13,33 @@ let Users = (props) => {
 
     return <div>
         <div className={s.pagesBar}>
-            {pages.map(p => {
-                return <span onClick={() => props.OnPageChanger(p)}
-                             className={(p === props.currentPage) ? s.selectedPage : ''}>|{p}|</span>
+            <span onClick={() => props.setCurrentPagesBox(props.currentPagesBox - 10)}>|&#60;&#60;|</span>
+            <span onClick={() => props.setCurrentPagesBox(props.currentPagesBox - 1)}>|&#60;|</span>
+
+            {pages.slice(props.currentPagesBox * 10 - 10, props.currentPagesBox * 10).map(p => {
+                return <span
+                    onClick={() => props.OnPageChanger(p)}
+                    className={(p === props.currentPage) ? s.selectedPage : ''}>|{p}|</span>
             })}
+
+            <span onClick={() => {
+                let predictablePagesBox = pages.find(e => e == ((props.currentPagesBox * 10)+1 ))
+                if (predictablePagesBox) {
+                    props.setCurrentPagesBox(props.currentPagesBox + 1)
+                }
+                // props.setCurrentPagesBox(props.currentPagesBox + 1)
+
+
+
+            }}>|&#62;|</span>
+            <span onClick={() => {
+                let predictablePagesBox = pages.find(e => e == ((props.currentPagesBox + 10) * 10))
+                if (predictablePagesBox) {
+                    props.setCurrentPagesBox(props.currentPagesBox + 10)
+                }
+            }}>|&#62;&#62;|</span>
         </div>
+
 
         {props.users.map(u => <div key={u.id}>
                 <span>
@@ -38,22 +61,6 @@ let Users = (props) => {
                                 props.unFollow(u.id)
                             }}>Unfollow</button>
                             : <button disabled={props.follwingInProgress.some(id => id === u.id)} onClick={() => {
-                                // props.toggleFollowingProgress(true, u.id)
-                                // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                //     {
-                                //         withCredentials: true,
-                                //         headers: {
-                                //             "API-KEY": "6fdc5189-693b-4a05-abe8-85419120110e"
-                                //         }
-                                //     }
-                                // )
-                                //     usersAPI.follow(u.id).then(res => {
-                                //         if (res.data.resultCode === 0) {
-                                //             props.follow(u.id)
-                                //
-                                //         }
-                                //         props.toggleFollowingProgress(false, u.id)
-                                //     })
                                 props.follow(u.id)
                             }}>Follow</button>}
                             </div>

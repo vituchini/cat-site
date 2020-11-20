@@ -24,7 +24,7 @@ function MyPosts(props) {
             <h2>My posts</h2>
             <div>
                 <div>
-                    <textarea placeholder='Ахаха шукай себе в дупах Дрогобича!' onChange={onNewPostChange} ref={newPostElement}  value={props.newPostText}/>
+                    <textarea placeholder='Type ur message!' onChange={onNewPostChange} ref={newPostElement}  value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>

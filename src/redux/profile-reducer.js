@@ -1,4 +1,3 @@
-import * as axios from "axios";
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD_POST'
@@ -7,16 +6,15 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 let initialState = {
     posts: [
-        {id: 1, message: 'Fuck U', likesCount: 20},
-        {id: 2, message: 'Fuck I', likesCount: 2},
-        {id: 3, message: 'Fuck All', likesCount: -1000}
+        {id: 1, message: 'Люблю шоколад', likesCount: 99},
+        {id: 2, message: 'І тебе також люблю', likesCount: 2},
+        {id: 3, message: 'Хочу подарити світу радість', likesCount: 10}
     ],
     newPostText: '',
     profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
-
 
     switch (action.type) {
 

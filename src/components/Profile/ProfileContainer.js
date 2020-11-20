@@ -2,9 +2,8 @@ import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {setUserProfile} from '../../redux/profile-reducer'
-import {Redirect, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../../hoc/withAuthRedirect";
-import Messages from "../Messages/Messages";
 import {compose} from "redux";
 
 class ProfileContainer extends React.Component {

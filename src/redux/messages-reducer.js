@@ -3,12 +3,12 @@ const SEND_MESSAGE = 'SEND_MESSAGE'
 
 let initialState = {
     dialogsData: [
-        {id: 1, name: 'Jopa'},
-        {id: 2, name: 'Yaiki'},
+        {id: 1, name: 'Jorik'},
+        {id: 2, name: 'Yana'},
         {id: 3, name: 'Sasha'}
     ],
     messagesData: [
-        {id: 1, message: 'Lol'},
+        {id: 1, message: 'Hi'},
         {id: 2, message: 'Haha'},
         {id: 3, message: 'Sho?'}
     ],
@@ -16,6 +16,7 @@ let initialState = {
 }
 
 const messagesReducer = (state = initialState, action) => {
+
     let stateCopy
 
     switch (action.type) {
@@ -30,13 +31,6 @@ const messagesReducer = (state = initialState, action) => {
                     }],
                 newMessageText: ''
             }
-            // let newMessage = {
-            //     id: stateCopy.messagesData.length + 1,
-            //     message: stateCopy.newMessageText
-            // }
-
-            // stateCopy.messagesData.push(newMessage)
-            // stateCopy.newMessageText = ''
             return stateCopy
         }
 
@@ -45,8 +39,6 @@ const messagesReducer = (state = initialState, action) => {
                 ...state,
                 newMessageText: action.newText
             }
-
-            // stateCopy.newMessageText = action.newText
             return stateCopy
         }
 
