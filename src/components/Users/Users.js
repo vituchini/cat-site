@@ -23,17 +23,13 @@ let Users = (props) => {
             })}
 
             <span onClick={() => {
-                let predictablePagesBox = pages.find(e => e == ((props.currentPagesBox * 10)+1 ))
+                let predictablePagesBox = pages.find(e => e === ((props.currentPagesBox * 10)+1 ))
                 if (predictablePagesBox) {
                     props.setCurrentPagesBox(props.currentPagesBox + 1)
                 }
-                // props.setCurrentPagesBox(props.currentPagesBox + 1)
-
-
-
             }}>|&#62;|</span>
             <span onClick={() => {
-                let predictablePagesBox = pages.find(e => e == ((props.currentPagesBox + 10) * 10))
+                let predictablePagesBox = pages.find(e => e === ((props.currentPagesBox + 10) * 10))
                 if (predictablePagesBox) {
                     props.setCurrentPagesBox(props.currentPagesBox + 10)
                 }

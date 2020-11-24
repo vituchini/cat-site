@@ -12,7 +12,7 @@ import Login from "./components/Login/Login";
 function App(props) {
 
     return (
-        <React.StrictMode>
+
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Navbar/>
@@ -27,7 +27,7 @@ function App(props) {
                            render={() => <Login/>}/>
                 </div>
             </div>
-        </React.StrictMode>
+
 
     );
 
