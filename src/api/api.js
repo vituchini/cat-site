@@ -29,6 +29,12 @@ export const authAPI = {
         return instance.get('auth/me').then(res => {
             return res.data
         })
+    },
+    login(email, password, rememberMe = false) {
+        return instance.post('auth/login', {email, password, rememberMe})
+    },
+    logout() {
+        return instance.delete('auth/login')
     }
 }
 export const profileAPI = {
@@ -40,7 +46,6 @@ export const profileAPI = {
         return instance.get('profile/status/' + userId)
     },
     updateStatus(status) {
-
         return instance.put('profile/status', {status: status})
     },
 }

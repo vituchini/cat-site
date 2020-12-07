@@ -30,7 +30,7 @@ const AddPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field validate={[requiredField,maxLength30]} component={TextArea} name={'newPostBody'}
+                <Field validate={[requiredField, maxLength30]} component={TextArea} name={'newPostBody'}
                        placeholder={'Type ur message!'}/>
             </div>
             <div>

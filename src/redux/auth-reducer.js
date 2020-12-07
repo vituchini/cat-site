@@ -1,4 +1,5 @@
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
@@ -18,7 +19,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.data,
-                isAuth: !action.data.login ? false : true
+                isAuth: action.isAuth
             }
         case TOGGLE_IS_FETCHING:
             return {
@@ -30,21 +31,50 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setUserDataSuccess = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}})
+export const setUserDataSuccess = (id, email, login, isAuth) => ({
+    type: SET_USER_DATA,
+    data: {id, email, login},
+    isAuth
+})
 export const toggleIsFeatching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const setUserData = () => (dispatch) => {
 
-    dispatch(toggleIsFeatching(true))
-
-    authAPI.setUserData().then(res => {
+    return authAPI.setUserData().then(res => {
         if (res.resultCode === 0) {
             let {id, email, login} = res.data
-            dispatch(setUserDataSuccess(id, email, login))
+            console.log({id, email, login,})
+            dispatch(setUserDataSuccess(id, email, login, true))
         }
         dispatch(toggleIsFeatching(false))
     })
+}
+export const login = (email, password, rememberMe) => (dispatch) => {
 
+    authAPI.login(email, password, rememberMe).then(res => {
+        if (res.data.resultCode === 0) {
+            dispatch(setUserData())
+
+        } else {
+            debugger
+            let message = res.data.messages.length > 0 ? res.data.messages[0] : 'Some error'
+            dispatch(stopSubmit('login', {_error: message}))
+        }
+    })
+    dispatch(toggleIsFeatching(false))
+}
+
+export const logout = () => (dispatch) => {
+
+    authAPI.logout().then(res => {
+        dispatch(toggleIsFeatching(true))
+
+        if (res.data.resultCode === 0) {
+            dispatch(setUserDataSuccess(null, null, null, null))
+            dispatch(setUserData())
+        }
+    })
+    dispatch(toggleIsFeatching(false))
 }
 
 export default authReducer
