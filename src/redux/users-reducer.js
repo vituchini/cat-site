@@ -1,4 +1,3 @@
-import React from "react";
 import {usersAPI} from "../api/api";
 
 const FOLLOW = 'FOLLOW'
@@ -18,12 +17,13 @@ let initialState = {
     currentPage: 1,
     currentPagesBox: 1,
     isFetching: true,
-    follwingInProgress: []
+    followingInProgress: [],
 }
 
 const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
+
         case FOLLOW:
             return {
                 ...state,
@@ -60,10 +60,10 @@ const usersReducer = (state = initialState, action) => {
             }
         }
         case SET_CURRENT_PAGES_BOX: {
-                return {
-                    ...state,
-                    currentPagesBox: action.numOfBox >= 0 ? action.numOfBox : 1
-                }
+            return {
+                ...state,
+                currentPagesBox: action.numOfBox >= 0 ? action.numOfBox : 1
+            }
         }
         case SET_TOTAL_USERS_COUNT: {
             return {
@@ -82,10 +82,9 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
                 ...state,
-                follwingInProgress: action.isFetching
-                    ? [...state.follwingInProgress, action.userId]
-                    : state.follwingInProgress.filter(id => id != action.userId)
-
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
         default:
@@ -111,9 +110,9 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
 })
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const getUsers = (page, pageSize) => (dispatch) => {
     dispatch(toggleIsFetching(true))
-    usersAPI.getUsers(currentPage, pageSize).then(data => {
+    usersAPI.getUsers(page, pageSize).then(data => {
         dispatch(toggleIsFetching(false))
         dispatch(setUsers(data.items))
         dispatch(setTotalUsersCount(data.totalCount))

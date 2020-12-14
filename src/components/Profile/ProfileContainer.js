@@ -11,7 +11,6 @@ class ProfileContainer extends React.Component {
         document.title = "Profile"
         let userId = this.props.match.params.userId
         if (!userId) {
-            debugger
             userId = this.props.currentUserId;
         }
         this.props.setUserProfile(userId)
