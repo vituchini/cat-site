@@ -1,9 +1,10 @@
 .item{
-    background-color: orangered;
+    background-color: midnightblue;
     padding-left: 5px;
     padding-top: 5px;
     margin:5px;
     display: flex;
+    border-radius: 30px;
 }
 
 .item img {
@@ -12,7 +13,6 @@
     border-radius: 30px;
 }
 .message{
-    margin-left: 10px;
-    /*margin-top: 20px;*/
+    padding-left: 10px;
     padding-top:15px;
 }

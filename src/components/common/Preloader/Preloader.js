@@ -4,7 +4,7 @@ import React from "react";
 let Preloader = (props) => {
     return (
         <div>
-            <img width='800px' src={preloader}/>
+            <img width='60%' src={preloader} alt={'loader'}/>
         </div>
 )}
  export default Preloader

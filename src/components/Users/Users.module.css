@@ -1,9 +1,10 @@
 .usersPhoto{
     width: 100px;
     height: 100px;
+    border-radius: 100px 100px 10px 100px;
 }
 .selectedPage{
-    font-weight: bold;
+    font-weight: bolder;
     border:solid red ;
 }
 .pagesBar{

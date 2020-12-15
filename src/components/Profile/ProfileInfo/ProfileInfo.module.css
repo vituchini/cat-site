@@ -1,14 +1,12 @@
 .ProfileInfoBlock{
-
 }
 .avatar {
     width: 150px;
-    /*border-radius: 1000px;*/
+    border-radius: 100px;
     padding: 10px;
 }
-
 .userWallpaper {
-    width: 100%;border-bottom: solid orangered;
+    /*width: 100%;border-bottom: solid orangered;*/
 }
 .descriptionBlock{
     padding: 10px;

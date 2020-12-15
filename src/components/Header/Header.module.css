@@ -1,21 +1,18 @@
 .logo {
     height: 100%;
+    padding-top: 10px;
 }
 .header {
     grid-area: h;
-    background-color: black;
-    border-bottom: solid orangered;
 }
 .loginBlock{
-
     float: right;
-    margin-right: 20px;
-    margin-top: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
 }
 .loginBlock a{
     text-decoration: none;
-    color: white;
+
 }
 .loginName{
-    color: white;
 }

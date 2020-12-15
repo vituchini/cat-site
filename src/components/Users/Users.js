@@ -45,7 +45,7 @@ let Users = (props) => {
                             src={
                                 u.photos.small != null
                                     ? u.photos.small
-                                    : "https://avatars.mds.yandex.net/get-zen_doc/3512693/pub_5efb3ff066fe1d5006536937_5efb4be4cdd4d637ce0fd2e8/scale_1200"
+                                    : "https://prm.ua/wp-content/uploads/2019/02/50766681_285739525440896_2458080093832029354_n.jpg"
                             }
                             alt=""
                         />
