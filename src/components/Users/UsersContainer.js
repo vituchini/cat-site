@@ -22,21 +22,22 @@ import {
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage,pageSize}=this.props
+        this.props.getUsers(currentPage, pageSize)
         document.title = "Users"
     }
 
     OnPageChanger = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        const {setCurrentPage,getUsers,pageSize} = this.props
+        setCurrentPage(pageNumber)
+        getUsers(pageNumber, pageSize)
 
     }
 
-
     render() {
-
+debugger
         return <>
-            {this.props.isFetching
+            {this.props.isUsersLoading
                 ? <Preloader/>
                 : <Users {...this.props} OnPageChanger={this.OnPageChanger}/>
             }
@@ -46,14 +47,15 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    debugger
     return {
         users: getUsersData(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         currentPagesBox: getCurrentPagesBox(state),
-        isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
+        isUsersLoading: getIsFetching(state),
     }
 }
 

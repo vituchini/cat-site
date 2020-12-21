@@ -1,0 +1,14 @@
+.pagesBar{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.pagesBar span{
+    cursor: pointer;
+}
+.selectedPage{
+    font-weight: bolder;
+    border:solid midnightblue;
+    border-radius: 100px;
+    padding-left: 5px;
+    background-color: #4a4aa5;
+}

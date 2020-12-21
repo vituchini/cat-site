@@ -3,14 +3,4 @@
     height: 100px;
     border-radius: 100px 100px 10px 100px;
 }
-.selectedPage{
-    font-weight: bolder;
-    border:solid red ;
-}
-.pagesBar{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.pagesBar span{
-    cursor: pointer;
-}
+

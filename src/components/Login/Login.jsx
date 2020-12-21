@@ -8,11 +8,11 @@ import {Redirect} from "react-router-dom";
 
 const LoginFormRedux = reduxForm({form: 'login'})(LoginForm)
 
-const Login = (props) => {
+const Login = ({login,isAuth}) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.remember)
+        login(formData.email, formData.password, formData.remember)
     }
-    if(props.isAuth){
+    if(isAuth){
         return <Redirect to={'/profile'}/>
     }
     return <div>
